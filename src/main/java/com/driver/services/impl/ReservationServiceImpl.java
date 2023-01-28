@@ -109,7 +109,7 @@ public class ReservationServiceImpl implements ReservationService {
 
         //Bidirectional
         spotChosen.getReservationList().add(reservation);
-        user.getReservation().add(reservation);
+        user.getReservationList().add(reservation);
 
         userRepository3.save(user);
         spotRepository3.save(spotChosen);

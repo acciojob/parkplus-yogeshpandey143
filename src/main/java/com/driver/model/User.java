@@ -29,7 +29,7 @@ public class User {
 	
 	@OneToMany
 	@JoinColumn
-	private List<Reservation>  reservation;
+	private List<Reservation>  reservationList;
 
 
 	public int getId() {
@@ -72,13 +72,13 @@ public class User {
 	}
 
 
-	public List<Reservation> getReservation() {
-		return reservation;
+	public List<Reservation> getReservationList() {
+		return reservationList;
 	}
 
 
-	public void setReservation(List<Reservation> reservation) {
-		this.reservation = reservation;
+	public void setReservation(List<Reservation> reservationList) {
+		this.reservationList = reservationList;
 	}
 
 
@@ -88,7 +88,7 @@ public class User {
 		this.name = name;
 		this.password = password;
 		this.phoneNumber = phoneNumber;
-		this.reservation = reservation;
+		this.reservationList = reservation;
 	}
 
 
