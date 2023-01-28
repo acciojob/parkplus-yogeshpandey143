@@ -77,7 +77,7 @@ public class User {
 	}
 
 
-	public void setReservation(List<Reservation> reservationList) {
+	public void setReservationList(List<Reservation> reservationList) {
 		this.reservationList = reservationList;
 	}
 
