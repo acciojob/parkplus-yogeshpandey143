@@ -1,100 +1,74 @@
 package com.driver.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
+import javax.persistence.*;
 
 @Entity
 @Table(name="reservation")
 public class Reservation {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	
-	private int numberOfHours;
-	
-	
-	@ManyToOne
-	@JoinColumn
-	private User user;
-	
-	
-	@ManyToOne
-	@JoinColumn
-	private Spot spot;
-	
-	@OneToOne
-	@JoinColumn
-	private Payment payment;
 
-	public int getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    private int numberOfHours;
 
-	public int getNumberOfHours() {
-		return numberOfHours;
-	}
+    public Reservation(int numberOfHours) {
+        this.numberOfHours = numberOfHours;
+    }
 
-	public void setNumberOfHours(int numberOfHours) {
-		this.numberOfHours = numberOfHours;
-	}
+    public Reservation() {
+    }
 
-	public User getUser() {
-		return user;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public Spot getSpot() {
-		return spot;
-	}
+    public int getNumberOfHours() {
+        return numberOfHours;
+    }
 
-	public void setSpot(Spot spot) {
-		this.spot = spot;
-	}
+    public void setNumberOfHours(int numberOfHours) {
+        this.numberOfHours = numberOfHours;
+    }
 
-	public Payment getPayment() {
-		return payment;
-	}
+    public Spot getSpot() {
+        return spot;
+    }
 
-	public void setPayment(Payment payment) {
-		this.payment = payment;
-	}
+    public void setSpot(Spot spot) {
+        this.spot = spot;
+    }
 
-	public Reservation(int id, int numberOfHours, User user, Spot spot, Payment payment) {
-		super();
-		this.id = id;
-		this.numberOfHours = numberOfHours;
-		this.user = user;
-		this.spot = spot;
-		this.payment = payment;
-	}
+    public Payment getPayment() {
+        return payment;
+    }
 
-	public Reservation() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-	public Reservation(int numberOfHours) {
-		super();
-		// TODO Auto-generated constructor stub
-		
-		this.numberOfHours = numberOfHours;
-	}
-	
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @ManyToOne
+    @JoinColumn
+    private Spot spot;
+
+
+    @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL)
+    private Payment payment;
+
+    @ManyToOne
+    @JoinColumn
+    private User user;
 }
