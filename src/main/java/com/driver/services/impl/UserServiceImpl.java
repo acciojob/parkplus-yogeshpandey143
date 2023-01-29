@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     	
     	userRepository4.deleteById(userId);
 
-    }
+    }  
 
     @Override
     public User updatePassword(Integer userId, String password) {
@@ -38,16 +38,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public void register(String name, String phoneNumber, String password) {
 
-    	User newUser = new User();
-    	newUser.setName(name);
-    	newUser.setPassword(password);
-    	newUser.setPhoneNumber(phoneNumber);
-    	List<Reservation> reservationList = new ArrayList<>();
-    	
-    	newUser.setReservationList(reservationList);
-    	
-    	
-    	userRepository4.save(newUser);
+    	   User user = new User(name,phoneNumber,password);
+           userRepository4.save(user);
     	
     	
     	

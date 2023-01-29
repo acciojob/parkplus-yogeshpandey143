@@ -89,7 +89,12 @@ public class Reservation {
 	}
 	
 	
-	
+	public Reservation(int numberOfHours) {
+		super();
+		// TODO Auto-generated constructor stub
+		
+		this.numberOfHours = numberOfHours;
+	}
 	
 
 }

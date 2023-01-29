@@ -90,6 +90,16 @@ public class User {
 		this.phoneNumber = phoneNumber;
 		this.reservationList = reservation;
 	}
+	
+	
+	public User(String name, String password, String phoneNumber) {
+		super();
+		
+		this.name = name;
+		this.password = password;
+		this.phoneNumber = phoneNumber;
+	
+	}
 
 
 	public User() {
